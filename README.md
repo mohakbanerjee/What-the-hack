@@ -1,36 +1,62 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ConfidentlyWrong.ai
 
-## Getting Started
+Sir Brainless, the AI therapist for life's 4 biggest problems: ragebait, overthinking, undercooked toast, and not knowing if you're him.
 
-First, run the development server:
+**100% confident. 0% qualified.**
+
+Live site: [https://confidently-wrong-six.vercel.app](https://confidently-wrong-six.vercel.app)
+
+A hackathon app for the track **Artificial Super Unintelligence**. There is no database. Aura and joke memory live in the browser. If the Gemini key is missing, the wifi dies, or the API errors, every session still answers from `lib/fallbacks.ts`.
+
+## Setup
+
+```bash
+npm i
+```
+
+Copy the env example and add a Gemini key (optional — the app runs without one):
+
+```bash
+# macOS / Linux
+cp .env.local.example .env.local
+
+# Windows PowerShell
+Copy-Item .env.local.example .env.local
+```
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+`GEMINI_API_KEY` is read only on the server. The model is `gemini-2.5-flash`.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Demo mode
 
-## Learn More
+Add `?demo=1` or press **demo mode** in the navbar. Demo mode skips the API, uses the pre-written fallbacks, and shortens the fake thinking loaders. Useful when the wifi is a prop.
 
-To learn more about Next.js, take a look at the following resources:
+## The four sessions
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+| Problem | Route | What Sir Brainless does |
+| --- | --- | --- |
+| Ragebait | `/ragebait` | Turns a mild opinion into a post and quote-tweets it |
+| Overthinking | `/overthink` | Reads one message like a court case, then tells you to touch grass |
+| Undercooked toast | `/toast` | Takes a photo, calls it toast, and prints a certificate |
+| Not knowing if you're him | `/not-him` | Scans a name and rules that you are not him |
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Scripts
 
-## Deploy on Vercel
+```bash
+npm run dev
+npm run build
+npm start
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Deploy on Vercel with `GEMINI_API_KEY` set in the project env. The build does not need a key.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+How the app is wired, including judge questions, is in [HOW_IT_WAS_BUILT.md](HOW_IT_WAS_BUILT.md).
+
+## Team
+
+Team ConfidentlyWrong.
