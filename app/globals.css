@@ -365,3 +365,17 @@ body::before {
     animation: none;
   }
 }
+
+.cam-on-desktop {
+  display: none !important;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .cam-on-desktop {
+    display: inline-flex !important;
+  }
+
+  .cam-on-phone {
+    display: none !important;
+  }
+}

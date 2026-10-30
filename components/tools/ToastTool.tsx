@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useAura } from "@/components/AuraProvider";
 import { PhotoPick } from "@/components/PhotoPick";
 import { ThinkingLoader } from "@/components/ThinkingLoader";
@@ -22,11 +22,82 @@ function showFallback(setReport: (report: ToastResult) => void) {
 export function ToastTool() {
   const { demo, nudge, flash } = useAura();
   const certRef = useRef<HTMLDivElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const streamRef = useRef<MediaStream | null>(null);
   const [preview, setPreview] = useState<string | null>(null);
   const [image, setImage] = useState<PreparedImage | null>(null);
   const [loading, setLoading] = useState(false);
   const [report, setReport] = useState<ToastResult | null>(null);
   const [sharing, setSharing] = useState(false);
+  const [camOn, setCamOn] = useState(false);
+
+  function stopCam() {
+    streamRef.current?.getTracks().forEach((track) => track.stop());
+    streamRef.current = null;
+    if (videoRef.current) videoRef.current.srcObject = null;
+    setCamOn(false);
+  }
+
+  useEffect(() => {
+    return () => {
+      streamRef.current?.getTracks().forEach((track) => track.stop());
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!camOn || !videoRef.current || !streamRef.current) return;
+    videoRef.current.srcObject = streamRef.current;
+    void videoRef.current.play().catch(() => undefined);
+  }, [camOn]);
+
+  async function startCam() {
+    if (!navigator.mediaDevices?.getUserMedia) {
+      flash("this browser will not open the webcam. upload from gallery instead.");
+      playBuzz();
+      return;
+    }
+    try {
+      stopCam();
+      let stream: MediaStream;
+      try {
+        stream = await navigator.mediaDevices.getUserMedia({
+          video: { facingMode: { ideal: "environment" } },
+          audio: false,
+        });
+      } catch {
+        stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: false });
+      }
+      streamRef.current = stream;
+      setCamOn(true);
+    } catch {
+      flash("camera said no. allow the webcam, or upload from gallery.");
+      playBuzz();
+    }
+  }
+
+  async function snap() {
+    const video = videoRef.current;
+    if (!video || !video.videoWidth) {
+      flash("the webcam is still waking up. give it a second.");
+      playBuzz();
+      return;
+    }
+    const canvas = document.createElement("canvas");
+    canvas.width = video.videoWidth;
+    canvas.height = video.videoHeight;
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+    ctx.drawImage(video, 0, 0);
+    const blob = await new Promise<Blob | null>((resolve) => canvas.toBlob(resolve, "image/jpeg", 0.9));
+    stopCam();
+    if (!blob) {
+      showFallback(setReport);
+      flash("the snap came out blank. here is a diagnosis anyway.");
+      playDing();
+      return;
+    }
+    await onFile(new File([blob], "toast-cam.jpg", { type: "image/jpeg" }));
+  }
 
   async function onFile(file: File | undefined) {
     if (!file) return;
@@ -104,11 +175,18 @@ export function ToastTool() {
       <DemoNote demo={demo} />
       <Panel>
         <div className="flex flex-wrap gap-3">
-          <PhotoPick label="Take photo 📷" capture="environment" tone="sun" onFile={(file) => void onFile(file)} />
+          <BigButton type="button" tone="sun" className="cam-on-desktop" onClick={() => void startCam()}>
+            Take photo 📷
+          </BigButton>
+          <div className="cam-on-phone">
+            <PhotoPick label="Take photo 📷" capture="environment" tone="sun" onFile={(file) => void onFile(file)} />
+          </div>
           <PhotoPick label="Upload from gallery" onFile={(file) => void onFile(file)} />
         </div>
         <div className="relative mt-5 overflow-hidden rounded-3xl border border-white/10 bg-black/40">
-          {preview ? (
+          {camOn ? (
+            <video ref={videoRef} autoPlay muted playsInline className="max-h-80 w-full bg-black object-contain" />
+          ) : preview ? (
             // eslint-disable-next-line @next/next/no-img-element
             <img src={preview} alt="Toast preview" className="max-h-80 w-full object-contain" />
           ) : (
@@ -126,8 +204,18 @@ export function ToastTool() {
             </div>
           ) : null}
         </div>
-        <div className="mt-4">
-          <BigButton type="button" disabled={loading} onClick={() => void judge()}>
+        <div className="mt-4 flex flex-wrap gap-3">
+          {camOn ? (
+            <>
+              <BigButton type="button" tone="sun" onClick={() => void snap()}>
+                Snap photo
+              </BigButton>
+              <BigButton type="button" tone="ghost" onClick={stopCam}>
+                Close camera
+              </BigButton>
+            </>
+          ) : null}
+          <BigButton type="button" disabled={loading || camOn} onClick={() => void judge()}>
             Judge my toast 🍞
           </BigButton>
         </div>
