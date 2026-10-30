@@ -18,7 +18,7 @@ export async function POST(request: Request) {
   const raw = await generateJson(
     `${JOKE_RULES}
 
-Rewrite the user's mild opinion as a ragebait post that makes it worse. Intensity ${intensity} out of 5. Higher means sillier, still harmless. Quote their words. Use a fresh meme catchphrase, not a celebrity scandal. The five replies must each use a different reference.
+Rewrite the user's exact opinion as a ragebait post. Intensity ${intensity} out of 5. The post and every reply must argue with what they actually said. Quote their words. If they said something about food, college, an ex, or a habit, stay on that subject. Do not reply with a generic meme that would fit any post. One catchphrase per reply, each different.
 
 Do not repeat any of these recent lines: ${JSON.stringify(avoid)}
 

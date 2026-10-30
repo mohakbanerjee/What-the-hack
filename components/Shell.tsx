@@ -74,7 +74,7 @@ function Chrome({ children }: { children: React.ReactNode }) {
         {children}
       </main>
       <footer className="border-t border-white/10 px-4 py-8 text-center text-base text-white/60 sm:text-lg">
-        made by Team ConfidentlyWrong. please do not book a follow up.
+        MyZgang. made by 4 people who should&apos;ve been studying.
       </footer>
     </div>
   );

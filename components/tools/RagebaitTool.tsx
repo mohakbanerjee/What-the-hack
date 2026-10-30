@@ -67,7 +67,7 @@ export function RagebaitTool() {
           sanitizeRage,
         );
     const data = await runWithThink(demo, task);
-    const replies = demo ? data.replies : presentRageReplies(data.replies);
+    const replies = presentRageReplies(data.replies, source.trim() || "having a normal opinion");
     const previous = escalate ? meter : 0;
     const score = Math.min(100, Math.max(data.rageScore, previous + (escalate ? 8 : 0)));
     if (!escalate) {

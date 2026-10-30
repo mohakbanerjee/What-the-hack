@@ -22,7 +22,7 @@ export async function POST(request: Request) {
   const raw = await generateJson(
     `${JOKE_RULES}
 
-You were asked to reassure the user. Do the opposite, like a therapist who spirals. Context: ${context}. Escalation level ${level}. If level is 1, overthinkPercent must be between 87 and 99.9. If level is above 1, overthinkPercent must be above 100, for example 143. Each spiral and forensic line needs a different meme reference. The verdict should feel like "it's probably fine (it is not fine)" but worded freshly, not copied from a previous line.
+You were asked to reassure the user. Do the opposite. Context: ${context}. Escalation level ${level}. If level is 1, overthinkPercent must be between 87 and 99.9. If level is above 1, overthinkPercent must be above 100, for example 143. Every spiral, forensic note, and the verdict must be about THIS message from this ${context}, quoting their words. A crush "ok" is not the same joke as a professor "ok". College and ex humor is fine. Do not drift into a meme that ignores the message. The verdict should feel like "it's probably fine (it is not fine)" while naming what they actually sent.
 
 Do not repeat any of these recent lines: ${JSON.stringify(avoid)}
 

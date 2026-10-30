@@ -35,39 +35,6 @@ const LOADING = [
   "sir brainless adjusted his sunglasses. they are drawn on.",
 ] as const;
 
-const RAGE_REPLIES = [
-  "kya baat hai. the baat is that nobody asked.",
-  "tumse na ho payega, and the group chat agrees in silence.",
-  "this is giving npc dialogue. the quest was 'have a normal thought'.",
-  "sigma move was staying quiet. you picked the cutscene.",
-  "aura minus fifty. the farm is closed for the season.",
-  "just looking like a wow. a wow nobody ordered.",
-  "so beautiful so elegant, just wrong.",
-  "moye moye started playing by itself.",
-  "zindagi jhandwa, and this post is the jhandwa.",
-  "bigg boss would give this a captaincy and then a eviction.",
-  "for that reason i'm out. the reason is the post.",
-  "samay would say 'next' and the 'next' would be kinder.",
-  "arpit bala could rhyme this. he should not have to.",
-  "rakhi sawant energy, but the drama budget was zero.",
-  "bhupendra jogi has logged off. even the meme is tired.",
-  "not him. not the take. not the moment.",
-  "it's giving group project member who says 'i'll do the intro'.",
-  "sharma ji ka beta did not do this, and he does not exist.",
-  "main character energy with background character research.",
-  "the ratio is already warming up in the parking lot.",
-  "this take has student-of-the-year confidence and a blank answer sheet.",
-  "touch grass is no longer a suggestion. it is the reply.",
-  "the gc muted this notification out of love.",
-  "low battery behavior from a full battery phone.",
-  "you posted this like the algorithm owed you money.",
-  "delulu with a publish button.",
-  "the vibe check returned 'please try again never'.",
-  "even the loading spinner looked away.",
-  "certified 'who asked' by the ministry of minding your business.",
-  "sir brainless has never been right, and he still knows this missed.",
-] as const;
-
 const RAGE_POSTS: Array<(subject: string) => string> = [
   (s) => `just said "${s}" like the timeline was waiting.`,
   (s) => `breaking: local legend announces "${s}" and expects a parade.`,
@@ -105,98 +72,6 @@ const RAGE_SPICE = [
   "zindagi jhandwa, remix edition.",
   "kya baat hai, said nobody, including the baat.",
   "sigma until the screenshot.",
-] as const;
-
-const SPIRALS = [
-  "they typed ok. ok is a genre now. you are writing the sequel.",
-  "the reply took four minutes. that is a court trial in your head.",
-  "you reread 'haha' like it was a legal document.",
-  "left on seen. the seen is doing a phd on your personality.",
-  "they used a period. the period feels personal.",
-  "no emoji. you have buried yourself over a missing emoji.",
-  "they said 'lol'. which lol. the kind lol. the distance lol.",
-  "double text energy is living in your drafts like a tenant.",
-  "you zoomed a story screenshot until it became abstract art.",
-  "the blue tick arrived and so did your villain origin.",
-  "they replied with a sticker. the sticker has a lawyer.",
-  "you checked who viewed it. the list is just your own anxiety.",
-  "three dots appeared, vanished, and took your evening with them.",
-  "you drafted twelve replies and sent 'haha same'.",
-  "the voice note is 0:04. you have analyzed all four seconds twice.",
-  "they said 'we should hang'. you have built a seating chart.",
-  "a thumbs up. from a person. in this economy of feelings.",
-  "you compared this reply to a reply from march. march is winning.",
-  "the nickname was missing. the nickname was one letter.",
-  "you asked a friend to read it. the friend is now also spiraling. sorry.",
-  "it's giving detective, but the crime is a normal conversation.",
-  "tumse na ho payega, said the part of you that wanted to sleep.",
-  "moye moye is playing and you did not press play.",
-  "kya baat hai. the baat is a two letter reply.",
-  "sigma would not check again. you are on lap fourteen.",
-  "not him behavior would be closing the app. you opened it.",
-  "sharma ji ka beta would have replied and touched grass. he is fictional.",
-  "bigg boss would narrate this as 'emotional damage, day one'.",
-  "for that reason you're out of the calm category.",
-  "the message is fine. your director's commentary is not.",
-] as const;
-
-const FORENSICS = [
-  "exhibit a: a normal sentence you treated like a series finale.",
-  "exhibit b: the time stamp. it proves nothing and you know that.",
-  "exhibit c: your draft folder, which is longer than the actual chat.",
-  "exhibit d: one emoji, cross-examined until it confessed to nothing.",
-  "the punctuation has an alibi. you do not.",
-  "witnesses include three group chats and a notes app apology.",
-  "the blue ticks were at the scene. they refuse to testify.",
-  "motive: wanting to be liked. method: rereading.",
-  "the reply is short because people have lives, allegedly.",
-  "no fingerprint on the sticker. you dusted it anyway.",
-  "timeline reconstructed from a single 'hmm'.",
-  "the story view was an accident. your essay was a choice.",
-  "expert testimony from your 2am brain, which is not licensed.",
-  "the case file is one text and forty interpretations.",
-  "closing argument: it was probably nothing. objection sustained by you.",
-  "chain of custody: phone, to pillow, to worse phone angle.",
-  "the period at the end is not a threat. it is grammar.",
-  "you highlighted 'ok' like it was a confession.",
-  "background check on a meme they sent in 2023. irrelevant. included.",
-  "the jury of one (you) has already reached fourteen verdicts.",
-  "voice note waveform analyzed for hidden sigh. it was a breath.",
-  "location data: your room. suspect: also your room.",
-  "the delay was them boiling water. you built a conspiracy.",
-  "character witness: the version of you that is normal at 11am.",
-  "forensic result: the chat is fine. the spiral has footnotes.",
-] as const;
-
-const OVERTHINK_VERDICTS = [
-  "sir brainless verdict: it's probably fine. (it is not fine.)",
-  "verdict: probably fine. your brain has filed an appeal anyway.",
-  "verdict: it's giving fine. the giving is suspicious.",
-  "verdict: kya baat hai, the baat is small, the spiral is a feature film.",
-  "verdict: tumse na ho payega, specifically the part where you stop.",
-  "verdict: not him, not a crisis, still a full documentary.",
-  "verdict: for that reason you're in. the reason is one text.",
-  "verdict: moye moye is optional. you made it compulsory.",
-  "verdict: sigma would close the chat. you opened a second chat about the chat.",
-  "verdict: probably fine, said nobody in your notes app.",
-  "verdict: the message is npc. your reaction is the final boss.",
-  "verdict: just looking like a wow, if wow means overthinking.",
-  "verdict: so beautiful so elegant, just a normal reply.",
-  "verdict: zindagi jhandwa, but only inside your head.",
-  "verdict: bigg boss would stretch this for a week. you already did.",
-  "verdict: aura was lost in the drafts folder.",
-  "verdict: sharma ji ka beta would have said 'cool' and left. fictional, but free.",
-  "verdict: it's probably fine. the footnotes disagree.",
-  "verdict: seen is not a personality test. you sat the exam.",
-  "verdict: the period is grammar. the spiral is extra credit you assigned yourself.",
-  "verdict: touch grass is the only peer-reviewed solution.",
-  "verdict: confidence 100%. the text was 'ok'.",
-  "verdict: latent roast of the day is the one you are doing to yourself.",
-  "verdict: bhupendra jogi is not in this chat. you checked.",
-  "verdict: probably fine. please do not book a follow up with the blue ticks.",
-  "verdict: main character hours over a side quest.",
-  "verdict: the reply survives. the director's cut should not.",
-  "verdict: it's fine. sir brainless has never been right, so maybe worry a little. no. stop.",
 ] as const;
 
 const TOAST_CRITIQUES = [
@@ -367,6 +242,140 @@ const SCAN_LINES = [
   "final frame is buffering out of respect.",
 ] as const;
 
+function q(text: string) {
+  const clean = text.trim().replace(/\s+/g, " ");
+  if (!clean) return "that";
+  return clean.length > 60 ? `${clean.slice(0, 57)}...` : clean;
+}
+
+function mentions(line: string, source: string) {
+  const raw = source.trim().toLowerCase();
+  if (raw.length < 2) return true;
+  const lower = line.toLowerCase();
+  if (lower.includes(raw.slice(0, Math.min(24, raw.length)))) return true;
+  const words = raw.split(/[^a-z0-9]+/).filter((word) => word.length > 3);
+  if (words.length === 0) return lower.includes(raw);
+  const hits = words.filter((word) => lower.includes(word)).length;
+  return hits >= Math.min(2, words.length);
+}
+
+function fillTemplates(
+  poolId: string,
+  templates: readonly ((input: string) => string)[],
+  input: string,
+  count: number,
+) {
+  const ids = drawFresh(
+    poolId,
+    templates.map((_, index) => String(index)),
+    count,
+  );
+  return ids.map((id) => templates[Number(id)]!(input));
+}
+
+function groundWith(
+  lines: string[],
+  mentionSource: string,
+  templateInput: string,
+  poolId: string,
+  templates: readonly ((input: string) => string)[],
+) {
+  return lines.map(
+    (line) =>
+      (mentions(line, mentionSource) ? line : fillTemplates(poolId, templates, templateInput, 1)[0] ?? line),
+  );
+}
+
+const RAGE_REPLY_TEMPLATES: readonly ((input: string) => string)[] = [
+  (s) => `"${s}" and the gc went silent like attendance at 8:30.`,
+  (s) => `money follows. "${s}" does not. it just sits in the chat.`,
+  (s) => `hum to aise hi hai, but "${s}" was a choice.`,
+  (s) => `tanmay bhat og-gang cadence, except the punchline is "${s}".`,
+  (s) => `your ex kept the hoodie. you kept saying "${s}".`,
+  (s) => `mess would serve "${s}" and still call it a balanced meal.`,
+  (s) => `placement cell read "${s}" and said for that reason we're out.`,
+  (s) => `zindagi jhandwa started the second you posted "${s}".`,
+  (s) => `"${s}" is a situationship: confusing, unpaid, and still online.`,
+  (s) => `professor energy, student execution. the assignment was "${s}".`,
+  (s) => `left on read, then you doubled down with "${s}".`,
+  (s) => `group project and "${s}" is the guy who says he'll do the intro.`,
+  (s) => `kya baat hai. the baat is "${s}", and nobody asked for the baat.`,
+  (s) => `tumse na ho payega, specifically the part where "${s}" stays a thought.`,
+  (s) => `"${s}" has main-character confidence and a failed internal.`,
+  (s) => `your ex would reply "lol" to "${s}" and mean it.`,
+  (s) => `attendance is at 74%. "${s}" is not the comeback arc.`,
+  (s) => `3am thought, posted anyway: "${s}".`,
+  (s) => `sharma ji ka beta would not have said "${s}". he is fake and still ahead.`,
+  (s) => `"${s}" is giving proxy attendance. present on paper, absent in spirit.`,
+  (s) => `money follows the quiet ones. you said "${s}" out loud.`,
+  (s) => `hum to aise hi hai was the apology. "${s}" was the crime.`,
+  (s) => `the situationship viewed "${s}" and sent a sticker from 2019.`,
+  (s) => `"${s}" would not survive a viva. the external is already tired.`,
+  (s) => `college wifi and "${s}" dropped at the same time. only one was a loss.`,
+  (s) => `for that reason the timeline is out. the reason is "${s}".`,
+  (s) => `"${s}" reads like a 12-page rant about someone who said "ok".`,
+  (s) => `moye moye is playing because "${s}" has no third act.`,
+];
+
+const SPIRAL_TEMPLATES: readonly ((input: string) => string)[] = [
+  (s) => `${s}. you have already written the director's cut.`,
+  (s) => `${s}, and your brain filed it under "ex behavior" with no evidence.`,
+  (s) => `hum to aise hi hai, but ${s} and now you're drafting reply number nine.`,
+  (s) => `money follows. so did ${s}, straight into your 3am notes app.`,
+  (s) => `${s}. this is attendance-shortage panic, but for a text.`,
+  (s) => `if your ex sent this, fine, spiral. this is just ${s}.`,
+  (s) => `${s}. the period at the end is not a breakup. you treated it like one.`,
+  (s) => `group project trauma activated by ${s}.`,
+  (s) => `${s}, and you checked who viewed the story. it was you.`,
+  (s) => `zindagi jhandwa, campus edition, triggered by ${s}.`,
+  (s) => `${s}. tanmay bhat og-gang would roast the overthink, not the message.`,
+  (s) => `you zoomed ${s} until it became a thesis with no supervisor.`,
+  (s) => `${s}. mess closes at 9. your spiral does not.`,
+  (s) => `placement form was easier than interpreting ${s}.`,
+  (s) => `${s}, and the three dots appeared, vanished, and took your evening.`,
+  (s) => `situationship scholars will cite ${s} for years.`,
+  (s) => `${s}. kya baat hai. the baat was two words and you built a courtroom.`,
+  (s) => `tumse na ho payega, specifically logging off after ${s}.`,
+  (s) => `${s}. you asked three friends. they are now also unwell.`,
+  (s) => `8:30 lecture has more clarity than ${s}.`,
+  (s) => `${s}, and you compared it to a text from march. march is winning.`,
+  (s) => `your ex said less and you survived. ${s} should not be harder.`,
+  (s) => `${s}. the blue ticks arrived. so did your villain origin.`,
+  (s) => `for that reason you're out of the calm category. the reason is ${s}.`,
+  (s) => `${s}. hum to aise hi hai was available. you picked the spiral.`,
+  (s) => `money follows people who close the chat. you reread ${s}.`,
+];
+
+const FORENSIC_TEMPLATES: readonly ((input: string) => string)[] = [
+  (s) => `exhibit: ${s}. the timestamp proves nothing and you highlighted it anyway.`,
+  (s) => `${s}. punctuation has an alibi. you do not.`,
+  (s) => `chain of custody for ${s}: phone, pillow, worse phone angle.`,
+  (s) => `${s}. no emoji. you held a funeral.`,
+  (s) => `the delay before ${s} was them boiling water. you built a conspiracy.`,
+  (s) => `${s}, cross-checked against an ex's text from last semester. irrelevant. included.`,
+  (s) => `voice note about ${s} was four seconds. you wrote minutes.`,
+  (s) => `${s}. the jury of one has reached fourteen verdicts.`,
+  (s) => `motive for rereading ${s}: wanting to be liked. method: not sleeping.`,
+  (s) => `${s}. this would not pass a plagiarism check. it is the same worry again.`,
+  (s) => `background check on ${s}. findings: a normal person had a normal day.`,
+  (s) => `${s}. attendance was fine. your interpretation was short.`,
+];
+
+const VERDICT_TEMPLATES: readonly ((input: string) => string)[] = [
+  (s) => `verdict on ${s}: it's probably fine. (it is not fine.)`,
+  (s) => `${s}. probably fine. your notes app has already appealed.`,
+  (s) => `verdict: ${s} survives. the director's cut should not.`,
+  (s) => `hum to aise hi hai, and ${s} is still probably fine. (it is not.)`,
+  (s) => `money follows. peace does not, because of ${s}. probably fine though.`,
+  (s) => `${s}. for that reason you're in your head. the message was small.`,
+  (s) => `verdict: college will continue after ${s}. you might not, tonight.`,
+  (s) => `${s} is not an ex coming back. it's probably fine. (stop checking.)`,
+  (s) => `sir brainless verdict on ${s}: probably fine. he has never been right.`,
+  (s) => `${s}. touch grass is peer-reviewed. the spiral is not.`,
+  (s) => `probably fine, said nobody reading ${s} at 3am.`,
+  (s) => `${s}. zindagi jhandwa is optional. you made it the verdict.`,
+];
+
 function spice(intensity: number) {
   if (intensity < 3) return "";
   return ` ${drawFresh("rage-spice", RAGE_SPICE, 1)[0]}`;
@@ -395,8 +404,9 @@ export function rageZone(score: number) {
 }
 
 export function ragebaitFallback(text: string, intensity = 1, avoid: string[] = []): RagebaitResult {
-  const subject = text.trim() || "having a normal opinion";
-  const replies = drawFresh("rage-replies", RAGE_REPLIES, 5, avoid);
+  const subject = q(text.trim() || "having a normal opinion");
+  const replies = fillTemplates("rage-reply-templates", RAGE_REPLY_TEMPLATES, subject, 5);
+  void avoid;
   return {
     post: `${pickPost(subject)}${spice(intensity)}`,
     rageScore: clamp(38 + intensity * 17 + subject.length, 22, 99),
@@ -465,10 +475,12 @@ export function overthinkFallback(
   level = 1,
   avoid: string[] = [],
 ): OverthinkResult {
-  const subject = `${context} ${text}`.trim();
-  const spirals = drawFresh("spirals", SPIRALS, Math.min(7, 5 + Math.max(0, level - 1)), avoid);
-  const forensics = drawFresh("forensics", FORENSICS, 4, avoid);
-  const verdict = drawFresh("verdicts", OVERTHINK_VERDICTS, 1, avoid)[0] ?? OVERTHINK_VERDICTS[0];
+  const scene = `${context} sent "${q(text)}"`;
+  const subject = scene;
+  const spirals = fillTemplates("spiral-templates", SPIRAL_TEMPLATES, scene, Math.min(7, 5 + Math.max(0, level - 1)));
+  const forensics = fillTemplates("forensic-templates", FORENSIC_TEMPLATES, scene, 4);
+  const verdict = fillTemplates("verdict-templates", VERDICT_TEMPLATES, scene, 1)[0] ?? VERDICT_TEMPLATES[0]!(scene);
+  void avoid;
   const raw = level <= 1 ? 91 + (subject.length % 8) : 108 + level * 9;
   return {
     overthinkPercent: level <= 1 ? round1(clamp(raw, 87, 99.9)) : clamp(raw, 101, 180),
@@ -499,7 +511,9 @@ export function notHimFallback(name: string, appeal: boolean | string[] = false,
   const picked =
     drawFresh(appealing ? "appeals" : "him-reasons", appealing ? APPEALS : HIM_REASONS, 1, extra)[0] ??
     "the scan finished. the scan regrets being here.";
-  const reason = appealing ? picked : picked.replaceAll("{name}", safeName);
+  const reason = appealing
+    ? picked
+    : `detected: ${safeName}. ${picked.replaceAll("{name}", safeName)}`;
   const celebrityMatch = drawFresh("matches", MATCHES, 1, extra)[0] ?? MATCHES[0];
   return {
     himScore: round1(0.4 + (safeName.length % 7) * 0.5),
@@ -508,20 +522,24 @@ export function notHimFallback(name: string, appeal: boolean | string[] = false,
   };
 }
 
-export function presentRageReplies(lines: string[]) {
-  return presentPool("rage-replies", RAGE_REPLIES, lines);
+export function presentRageReplies(lines: string[], subject: string) {
+  const clipped = q(subject);
+  return groundWith(lines, subject, clipped, "rage-reply-fix", RAGE_REPLY_TEMPLATES);
 }
 
-export function presentSpirals(lines: string[]) {
-  return presentPool("spirals", SPIRALS, lines);
+export function presentSpirals(lines: string[], text: string, context = "friend") {
+  const scene = `${context} sent "${q(text)}"`;
+  return groundWith(lines, text, scene, "spiral-fix", SPIRAL_TEMPLATES);
 }
 
-export function presentForensics(lines: string[]) {
-  return presentPool("forensics", FORENSICS, lines);
+export function presentForensics(lines: string[], text: string, context = "friend") {
+  const scene = `${context} sent "${q(text)}"`;
+  return groundWith(lines, text, scene, "forensic-fix", FORENSIC_TEMPLATES);
 }
 
-export function presentVerdict(line: string) {
-  return presentPool("verdicts", OVERTHINK_VERDICTS, [line])[0] ?? line;
+export function presentVerdict(line: string, text: string, context = "friend") {
+  const scene = `${context} sent "${q(text)}"`;
+  return groundWith([line], text, scene, "verdict-fix", VERDICT_TEMPLATES)[0] ?? line;
 }
 
 export function presentToast(critique: string, grade: string) {

@@ -59,4 +59,4 @@ How the app is wired, including judge questions, is in [HOW_IT_WAS_BUILT.md](HOW
 
 ## Team
 
-Team ConfidentlyWrong.
+MyZgang. made by 4 people who should've been studying.

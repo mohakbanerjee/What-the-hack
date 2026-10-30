@@ -71,9 +71,9 @@ export function OverthinkTool() {
           (data, fb) => sanitizeOverthink(data, fb, nextLevel),
         );
     const data = await runWithThink(demo, task);
-    const spiralsNext = demo ? data.spirals : presentSpirals(data.spirals);
-    const forensicsNext = demo ? data.forensics : presentForensics(data.forensics);
-    const verdictNext = demo ? data.verdict : presentVerdict(data.verdict);
+    const spiralsNext = presentSpirals(data.spirals, message, context);
+    const forensicsNext = presentForensics(data.forensics, message, context);
+    const verdictNext = presentVerdict(data.verdict, message, context);
     if (!escalate) {
       setSpirals(spiralsNext);
       setForensics(forensicsNext);

@@ -31,7 +31,7 @@ export async function POST(request: Request) {
   const raw = await generateJson(
     `${JOKE_RULES}
 
-A photo is attached as inline image data. Judge it as toast even if it is obviously not toast. Be confidently wrong and affectionate. If a person is in frame, ignore their face and body completely and talk about the imaginary toast. Do not reuse a meme twice. Do not repeat any of these recent lines: ${JSON.stringify(avoid)}
+A photo is attached. First identify what is actually in the frame (bread, pizza, a ceiling, a shoe, a screenshot). identifiedAs must name that thing. The critique must joke about the colors, shape, and object you can see, as if that object applied to be toast. If it is not bread, say what it really is and roast that. If a person is in frame, ignore their face and body and talk about the object. Do not return a generic bread joke that would fit any photo. Do not repeat any of these recent lines: ${JSON.stringify(avoid)}
 
 Return JSON:
 {"goldenBrownIndex":72,"crunch":"short label","butter":"short label","aura":"short label","integrity":"short label","grade":"emotionally golden","identifiedAs":"what you claim it is","critique":"two or three light sentences"}

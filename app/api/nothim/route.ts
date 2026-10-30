@@ -22,7 +22,7 @@ ${
   appeal
     ? "The user is appealing a previous verdict that they are not him. Reject the appeal with a brand new reason that starts with 'appeal denied'."
     : "The user asked if they are him. Start the reason with 'detected:'."
-} They are not him. Name: ${JSON.stringify(name || "anonymous")}. Roast habits, texting, or follow-through. celebrityMatch must be a meme archetype or catchphrase character, not an insult and not a claim about a real person's life. Never mention appearance, race, religion, caste, body, gender, or disability. Do not repeat any of these recent lines: ${JSON.stringify(avoid)}
+} They are not him. Name: ${JSON.stringify(name || "anonymous")}. The reason must include their name and a habit joke (texting, college, exes, follow-through), not a meme that could fit anyone. celebrityMatch is a vibe label, not an insult or a claim about a real person. Never mention appearance, race, religion, caste, body, gender, or disability. Do not repeat any of these recent lines: ${JSON.stringify(avoid)}
 
 Return JSON:
 {"reason":"detected: replies 'haha' to everything","himScore":1.7,"celebrityMatch":"a loading screen with main character lighting"}
